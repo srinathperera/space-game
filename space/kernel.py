@@ -2,6 +2,9 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
    
+@dataclass
+class World:
+    game_objects: list 
 
 
 
@@ -31,6 +34,3 @@ class GameObject(ABC):
     def isAlive(self):
         return True
 
-@dataclass
-class World:
-    game_objects: list[GameObject]
