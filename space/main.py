@@ -3,6 +3,7 @@ import sys
 from kernel import foo
 from configs import HEIGHT, WIDTH
 from ship import createSpaceship
+from astroid import createAstroid
 
 # Initialize Pygame
 pygame.init()
@@ -26,7 +27,8 @@ speed = 5
 
 #initialize Game Objects
 spaceship = createSpaceship("Player")
-game_objects = [spaceship]
+astroid = createAstroid("Astroid")  
+game_objects = [spaceship, astroid]
 
 def steer_ship():
     """Function to steer the ship using keyboard controls."""
