@@ -1,6 +1,6 @@
 import pygame
 import sys
-from kernel import foo
+from kernel import World
 from configs import HEIGHT, WIDTH
 from ship import createSpaceship
 from astroid import createAstroid
@@ -28,7 +28,8 @@ speed = 5
 #initialize Game Objects
 spaceship = createSpaceship("Player")
 astroid = createAstroid("Astroid")  
-game_objects = [spaceship, astroid]
+world = World(game_objects=[spaceship, astroid])
+world.ship = spaceship
 
 def steer_ship():
     """Function to steer the ship using keyboard controls."""
@@ -71,16 +72,16 @@ while running:
     #spaceship_rect = spaceship_img.get_rect(center=(x, y))
     #screen.blit(spaceship_img, spaceship_rect)
 
-    for game_object in game_objects:
-        game_object.epochEvent(game_objects)
+    for game_object in world.game_objects:
+        game_object.epochEvent(world)
 
-    for game_object in game_objects:
+    for game_object in world.game_objects:
         if game_object.isAlive():
             draw_data = game_object.getDrawData(distroyed=False)
             screen.blit(draw_data[0], draw_data[1])
         else:
             #to remove distryed objects or bullets 
-            game_objects.remove(game_object)
+            world.game_objects.remove(game_object)
 
     pygame.display.flip()
     clock.tick(60)  # 60 FPS

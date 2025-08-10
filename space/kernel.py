@@ -1,13 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
-@dataclass
-class World:
-    x: int
-    y: int
-    width: int
-    height: int
-    color: tuple[int, int, int]
+   
 
 
 
@@ -36,3 +30,7 @@ class GameObject(ABC):
 
     def isAlive(self):
         return True
+
+@dataclass
+class World:
+    game_objects: list[GameObject]
