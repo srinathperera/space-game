@@ -27,8 +27,9 @@ speed = 5
 
 #initialize Game Objects
 spaceship = createSpaceship("Player")
-astroid = createAstroid("Astroid")  
-world = World(game_objects=[spaceship, astroid])
+astroid1 = createAstroid("Astroid")
+#astroid2 = createAstroid("Astroid",epoch_function=lambda world: astroid1.fast_epoch_event(world))  
+world = World(game_objects=[spaceship, astroid1])
 world.ship = spaceship
 
 def steer_ship():
