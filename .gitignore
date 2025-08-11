@@ -1,0 +1,28 @@
+# Ignore compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore build directories
+build/
+dist/
+venv/
+__pycache__/
+
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore environment variables
+.env
+
+# Ignore dependencies
+node_modules/
+vendor/
+
+# Ignore IDE configs
+.idea/
+.vscode/
+
