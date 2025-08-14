@@ -4,6 +4,8 @@ from kernel import World
 from configs import HEIGHT, WIDTH
 from ship import createSpaceship
 from astroid import createAstroid
+from nithu import updateNithuObjects
+from basi import updateBasiObjects
 
 # Initialize Pygame
 pygame.init()
@@ -27,10 +29,14 @@ speed = 5
 
 #initialize Game Objects
 spaceship = createSpaceship("Player")
-astroid1 = createAstroid("Astroid")
+#astroid1 = createAstroid("Astroid")
 #astroid2 = createAstroid("Astroid",epoch_function=lambda world: astroid1.fast_epoch_event(world))  
-world = World(game_objects=[spaceship, astroid1])
+#world = World(game_objects=[spaceship, astroid1])
+world = World(game_objects=[spaceship])
 world.ship = spaceship
+
+world = updateNithuObjects(world)
+world = updateBasiObjects(world)
 
 def steer_ship():
     """Function to steer the ship using keyboard controls."""

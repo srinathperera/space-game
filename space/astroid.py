@@ -14,6 +14,7 @@ class AstroidObject(GameObject):
         self.y = y
         self.astroid_img = pygame.image.load('images/astroid.png').convert_alpha()
         # Store the custom epoch function, or use default if none provided
+        self.image = self.astroid_img
         self.epoch_function = epoch_function or self._default_epoch_event
 
     def _default_epoch_event(self, world: World):
@@ -31,7 +32,7 @@ class AstroidObject(GameObject):
         self.epoch_function(world)
 
     def getDrawData(self, distroyed: bool):
-        astroid_rect = self.astroid_img.get_rect(center=(self.x, self.y))
-        return self.astroid_img, astroid_rect
+        astroid_rect = self.image.get_rect(center=(self.x, self.y))
+        return self.image, astroid_rect
 
 
